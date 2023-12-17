@@ -1,0 +1,7 @@
+<!-- resources/templates/resource_type_detail.html -->
+<h1>{{ resource_type.name }} Resources</h1>
+<ul>
+  {% for resource in resources_of_type %}
+    <li>{{ resource.title }}</li>
+  {% endfor %}
+</ul>

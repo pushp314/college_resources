@@ -1,0 +1,14 @@
+<!-- resources/templates/resources/ebook_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ ebook.title }}</h1>
+  <p>{{ ebook.description }}</p>
+  <p>Author: {{ ebook.author }}</p>
+  <p>Publication Year: {{ ebook.publication_year }}</p>
+  <p>Uploaded by: {{ ebook.uploader.username }}</p>
+  <p>Upload Date: {{ ebook.upload_date }}</p>
+  <!-- Add more details based on your specific ebook model -->
+  <a href="{{ ebook.file.url }}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;" download>Download</a>
+{% endblock %}

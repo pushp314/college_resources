@@ -1,0 +1,24 @@
+<!-- resources/templates/resources/document_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="document-details-container">
+    <h1 style="color: #007bff; font-size: 24px; margin-bottom: 10px;">{{ document.title }}</h1>
+    <p style="font-size: 16px; color: #555; margin-bottom: 20px;">{{ document.description }}</p>
+
+    <a href="{{ document.file.url }}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;" download>Download</a>
+    <!-- Add more details based on your specific document model -->
+  </div>
+  
+  <style>
+    .document-details-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+  </style>
+{% endblock %}

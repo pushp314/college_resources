@@ -1,0 +1,12 @@
+<!-- resources/templates/resources/image_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Image List</h1>
+  <ul>
+    {% for image in images %}
+      <li><a href="{% url 'image-detail' pk=image.pk %}">{{ image.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

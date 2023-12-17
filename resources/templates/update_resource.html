@@ -1,0 +1,15 @@
+<!-- resources/templates/update_resource.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Update Resource - Your Site{% endblock %}
+
+{% block header %}Update Resource{% endblock %}
+
+{% block content %}
+    <h2>Update Resource</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+{% endblock %}

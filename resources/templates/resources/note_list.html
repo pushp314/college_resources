@@ -1,0 +1,14 @@
+<!-- resources/templates/resources/note_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Note List</h1>
+  <ul>
+    {% for note in notes %}
+    {{ note.resource.upload_date }}
+      <li><a href="{% url 'note-detail' pk=note.pk %}">{{ note.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+

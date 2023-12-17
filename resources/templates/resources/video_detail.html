@@ -1,0 +1,10 @@
+<!-- resources/templates/resources/video_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ video.title }}</h1>
+  <p>{{ video.description }}</p>
+  <a href="{{ video.file.url }}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;" download>Download</a>
+  <!-- Add more details based on your specific video model -->
+{% endblock %}

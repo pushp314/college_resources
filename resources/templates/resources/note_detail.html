@@ -1,0 +1,13 @@
+<!-- resources/templates/resources/note_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ note.title }}</h1>
+  <p>{{ note.description }}</p>
+  <p>Content: {{ note.content }}</p>
+  <p>Uploaded by: {{ note.uploader.username }}</p>
+  <p>Upload Date: {{ note.upload_date }}</p>
+  <!-- Add more details based on your specific note model -->
+  <a href="{{ note.file.url }}" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;" download>Download</a>
+{% endblock %}

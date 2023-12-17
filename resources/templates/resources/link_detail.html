@@ -1,0 +1,14 @@
+<!-- resources/templates/resources/link_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>{{ link.title }}</h1>
+  <p>{{ link.description }}</p>
+  <p>URL: {{ link.url }}</p>
+  <p>Uploaded by: {{ link.uploader.username }}</p>
+  <p>Upload Date: {{ link.upload_date }}</p>
+  <!-- Add more details based on your specific link model -->
+  <a href="{% url 'delete_resource' resource.id %}">Delete Resource</a>
+    <a href="{% url 'update_resource' resource.id %}">Update Resource</a>
+{% endblock %}

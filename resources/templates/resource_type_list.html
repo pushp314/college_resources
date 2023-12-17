@@ -1,0 +1,7 @@
+<!-- resources/templates/resource_type_list.html -->
+<h1>Resource Types</h1>
+<ul>
+  {% for resource_type in resource_types %}
+    <li><a href="{% url 'resource_type_detail' resource_type.id %}">{{ resource_type.name }}</a></li>
+  {% endfor %}
+</ul>

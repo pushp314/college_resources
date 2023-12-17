@@ -1,0 +1,26 @@
+<!-- resources/templates/upload_resource.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Upload Resource - Your Site{% endblock %}
+
+{% block header %}Upload Resource{% endblock %}
+
+{% block content %}
+
+
+    <h2>Upload {{ resource_type.name }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <h2>Upload Image</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+
+{% endblock %}

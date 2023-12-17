@@ -1,0 +1,12 @@
+<!-- resources/templates/resources/video_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Video List</h1>
+  <ul>
+    {% for video in videos %}
+      <li><a href="{% url 'video-detail' pk=video.pk %}">{{ video.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

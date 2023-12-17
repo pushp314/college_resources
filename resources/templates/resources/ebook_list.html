@@ -1,0 +1,12 @@
+<!-- resources/templates/resources/ebook_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Ebook List</h1>
+  <ul>
+    {% for ebook in ebooks %}
+      <li><a href="{% url 'ebook-detail' pk=ebook.pk %}">{{ ebook.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

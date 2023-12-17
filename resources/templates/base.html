@@ -1,0 +1,167 @@
+<!-- resources/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Site Title{% endblock %}</title>
+    <!-- Include your CSS stylesheets, meta tags, or other head elements here -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        nav {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #007bff;
+        }
+
+        #features {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        #cta h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'resource-list' %}">Resources</a></li>
+            <li><a href="{% url 'note-list' %}">Notes</a></li>
+            <li><a href="{% url 'ebook-list' %}">Ebooks</a></li>
+            <li><a href="{% url 'link-list' %}">Links</a></li>
+            <li><a href="{% url 'video-list' %}">Videos</a></li>
+            <li><a href="{% url 'image-list' %}">Images</a></li>
+            <li><a href="{% url 'document-list' %}">Documents</a></li>
+            <li><a href="{% url 'upload_page' %}">Upload</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'dashboard' %}">User</a></li>
+            <li><a href="{% url 'signout' %}">Sign Out</a></li>
+            {% else %}
+            <!-- Only show sign-in link if user is not authenticated -->
+            <li><a href="{% url 'signin' %}">Sign In</a></li>
+            {% endif %}     
+        </ul>
+    </nav>
+
+    <!-- Content Block -->
+    <div class="content">
+        {% block content %}
+        <header>
+            <h1>Welcome to the College Resource Hub</h1>
+            <p>Your one-stop destination for sharing and accessing educational resources</p>
+        </header>
+        <section id="features">
+            <div class="feature">
+                <h2>Share Resources</h2>
+                <p>Contribute to the community by sharing notes, study materials, and other resources.</p>
+                <a href="https://forms.gle/GLidD8hUa3urmEJ18" class="button">Upload</a>
+            </div>
+    
+            <div class="feature">
+                <h2>Access Resources</h2>
+                <p>Explore a variety of materials shared by your peers to enhance your learning experience.</p>
+            </div>
+    
+            <div class="feature">
+                <h2>Collaborate with Peers</h2>
+                <p>Connect with fellow students, ask questions, and collaborate on projects.</p>
+            </div>
+
+            <!-- Section -->
+            
+            <section id="cta">
+                <h2>Get Started</h2>
+                <p>Join the College Resource Hub today and make your learning journey more collaborative and resourceful.</p>
+                <a href="{% url 'signup' %}" class="button">Sign Up</a>
+            </section>
+            
+
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 College Resource Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- Include your JavaScript scripts or other bottom-of-the-page elements here -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

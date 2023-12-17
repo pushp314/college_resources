@@ -1,0 +1,32 @@
+<!-- resources/templates/resources/resource_detail.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Resource Detail{% endblock %}
+
+{% block content %}
+    <h2>{{ resource.title }}</h2>
+    <p>{{ resource.description }}</p>
+
+    <!-- Display content specific to each resource type -->
+    {% if resource.resource_type.name == 'Note' %}
+        <p>Content: {{ resource.note.content }}</p>
+    {% elif resource.resource_type.name == 'Ebook' %}
+        <p>Author: {{ resource.ebook.author }}</p>
+        <p>Publication Year: {{ resource.ebook.publication_year }}</p>
+        <!-- Add more fields specific to Ebook as needed -->
+        <p>File: <a href="{{ resource.ebook.file.url }}" target="_blank">View Ebook</a></p>
+    {% elif resource.resource_type.name == 'Link' %}
+        <p>URL: {{ resource.link.url }}</p>
+    {% elif resource.resource_type.name == 'Video' %}
+        <!-- Display video file or other video-specific information -->
+    {% elif resource.resource_type.name == 'Image' %}
+        <img src="{{ resource.image.image_file.url }}" alt="{{ resource.title }}">
+    {% elif resource.resource_type.name == 'Document' %}
+        <!-- Display document file or other document-specific information -->
+        <p>File: <a href="{{ resource.document.file.url }}" target="_blank">View Document</a></p>
+    {% endif %}
+    <a href="{% url 'delete_resource' resource.id %}">Delete Resource</a>
+    <a href="{% url 'update_resource' resource.id %}">Update Resource</a>
+{% endblock %}
+
+

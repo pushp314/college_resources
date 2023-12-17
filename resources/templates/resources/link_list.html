@@ -1,0 +1,12 @@
+<!-- resources/templates/resources/link_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>Link List</h1>
+  <ul>
+    {% for link in links %}
+      <li><a href="{% url 'link-detail' pk=link.pk %}">{{ link.title }}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

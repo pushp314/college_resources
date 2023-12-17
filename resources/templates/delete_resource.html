@@ -1,0 +1,17 @@
+<!-- resources/templates/delete_resource.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Delete Resource - Your Site{% endblock %}
+
+{% block header %}Delete Resource{% endblock %}
+
+{% block content %}
+    <h2>Delete Resource</h2>
+    <p>Are you sure you want to delete '{{ resource.title }}'?</p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'resource_list' %}">Cancel</a>
+{% endblock %}

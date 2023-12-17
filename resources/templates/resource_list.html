@@ -1,0 +1,16 @@
+<!-- resources/templates/resource_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Resource List - Your Site{% endblock %}
+
+{% block header %}Resource List{% endblock %}
+
+{% block content %}
+    <h2>List of Resources</h2>
+    <ul>
+        {% for resource in resources %}
+            <li>{{ resource.title }} - {{ resource.description }}</li>
+        {% endfor %}
+    </ul>
+    
+{% endblock %}
